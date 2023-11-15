@@ -1,0 +1,42 @@
+{
+  "name": "rn-tvos-tab-bar",
+  "version": "0.1.0",
+  "description": "Native Component for UITabBar on tvOS",
+  "react-native": "js/index",
+  "source": "js/index",
+  "files": [
+    "js",
+    "android",
+    "ios",
+    "rn-tvos-tab-bar.podspec",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "keywords": [
+    "react-native",
+    "ios"
+  ],
+  "repository": "https://github.com/yldio/rn-tvos-tab-bar.git",
+  "author": "YLD (https://github.com/yldio)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yldio/rn-tvos-tab-bar/issues"
+  },
+  "homepage": "https://github.com/yldio/rn-tvos-tab-bar#readme",
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-native": "npm:react-native-tvos"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "codegenConfig": {
+    "name": "YLDTabBarSpecs",
+    "type": "components",
+    "jsSrcsDir": "js"
+  }
+}
