@@ -39,7 +39,8 @@ function YourNativeComponent(props) {
 
 ## Props
 
-All props are required.
+The TabBar component accepts all regular view props. 
+The props controlling the TabBar are the following and are all required.
 
 ### `items`
 
