@@ -15,7 +15,8 @@ using namespace facebook::react;
 
 @implementation YLDTabBar {
   #ifdef RCT_NEW_ARCH_ENABLED
-  UITabBar *_view;
+    UITabBar *_view;
+    UITabBar *_oldView;
   #endif
 }
 
@@ -26,18 +27,27 @@ using namespace facebook::react;
 }
 
 #ifdef RCT_NEW_ARCH_ENABLED
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-  if (self = [super init]) {
-    static const auto defaultProps = std::make_shared<const YLDTabBarProps>();
-    _props = defaultProps;
+    self = [super initWithFrame:frame];
+    return self;
+}
 
-    _view = [[UITabBar alloc] init];
-    _view.delegate = self;
+- (void)ensureView {
+    if (!_view) {
+        static const auto defaultProps = std::make_shared<const YLDTabBarProps>();
+        _props = defaultProps;
+        
+        _view = [[UITabBar alloc] init];
+        _view.delegate = self;
 
-    self.contentView = _view;
-  }
-  return self;
+        [self setContentView:_view];
+    }
+}
+
+- (void) layoutSubviews {
+    [super layoutSubviews];
+    _view.frame = self.bounds;
 }
 #endif
 
@@ -79,6 +89,7 @@ using namespace facebook::react;
 #ifdef RCT_NEW_ARCH_ENABLED
 - (void)updateProps:(facebook::react::Props::Shared const &)props oldProps:(facebook::react::Props::Shared const &)oldProps
 {
+  [self ensureView];
   const auto &oldScreenProps = *std::static_pointer_cast<const facebook::react::YLDTabBarProps>(_props);
   const auto &newScreenProps = *std::static_pointer_cast<const facebook::react::YLDTabBarProps>(props);
 
@@ -102,6 +113,18 @@ using namespace facebook::react;
   }
 
   [super updateProps:props oldProps:oldProps];
+}
+
+- (void)prepareForRecycle{
+    [super prepareForRecycle];
+    
+    _view.delegate = nil;
+
+    [self willRemoveSubview:_view];
+    [_view willMoveToSuperview:nil];
+    [_view removeFromSuperview];
+    
+    _view = nil;
 }
 #endif
 
