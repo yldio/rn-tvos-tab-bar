@@ -21,7 +21,7 @@
   ],
   "repository": "https://github.com/yldio/rn-tvos-tab-bar.git",
   "author": "YLD (https://github.com/yldio)",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/yldio/rn-tvos-tab-bar/issues"
   },
