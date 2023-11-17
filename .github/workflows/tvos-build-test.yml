@@ -1,0 +1,37 @@
+name: Test TvOS build with legacy architecture
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/tvos-build-test.yml"
+      - "rn-tvos-tab-bar.podspec"
+      - "package.json"
+      - "ios/**"
+      - "TvOSExample/**"
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: macos-12
+    env:
+      WORKING_DIRECTORY: TvOSExample
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: "yarn"
+          cache-dependency-path: "TvOSExample/yarn.lock"
+      - name: Install node dependencies
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+        run: yarn
+      - name: Install pods
+        working-directory: ${{ env.WORKING_DIRECTORY }}/ios
+        run: pod install
+      - name: Build app
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+        run: yarn tvos
