@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "tvos": "react-native run-ios --scheme TvOSExample-tvOS --simulator \"Apple TV\"",
+    "build:tvos": "xcodebuild clean build -workspace ios/TvOSExample.xcworkspace -scheme TvOSExample-tvOS -destination 'platform=tvOS Simulator' CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO",
     "start": "react-native start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest"
