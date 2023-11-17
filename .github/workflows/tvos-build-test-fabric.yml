@@ -32,7 +32,9 @@ jobs:
       - name: Install pods
         working-directory: ${{ env.WORKING_DIRECTORY }}/ios
         run: RCT_NEW_ARCH_ENABLED=1 pod install
-      - uses: futureware-tech/simulator-action@v3
+      - name: Start simulator
+        id: start-simulator
+        uses: futureware-tech/simulator-action@v3
         with:
           os: tvOS
       - name: Build app
@@ -40,6 +42,6 @@ jobs:
         with:
           workspace: ${{ env.WORKING_DIRECTORY }}/ios/FabricTvOSExample.xcworkspace
           scheme: FabricTvOSExample-tvOS
-          destination: platform=tvOS Simulator
+          destination: platform=TvOS Simulator, id=${{ steps.start-simulator.outputs.udid }}
           action: clean build
           build-settings: CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
