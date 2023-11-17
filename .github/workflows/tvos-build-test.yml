@@ -42,6 +42,6 @@ jobs:
         with:
           workspace: ${{ env.WORKING_DIRECTORY }}/ios/TvOSExample.xcworkspace
           scheme: TvOSExample-tvOS
-          destination: platform=TvOS Simulator, id=${{ steps.start-simulator.outputs.udid }}
+          destination: platform=TvOS Simulator, name=Apple TV
           action: clean build
           build-settings: CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
