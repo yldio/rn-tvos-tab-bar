@@ -1,0 +1,28 @@
+name: Continuous Delivery
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v2.1.1
+      #   with:
+      #     node-version: '14.x'
+      #     registry-url: https://npm.pkg.github.com/
+      #     scope: '@yldio'
+      # - name: Install dependencies
+      #   run: yarn install --immutable
+      #   env:
+      #     YARN_CHECKSUM_BEHAVIOR: update
+      - name: Publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          dry-run: true
+          token: ${{ secrets.NODE_AUTH_TOKEN }}
