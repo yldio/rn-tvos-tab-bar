@@ -32,11 +32,6 @@ jobs:
       - name: Install pods
         working-directory: ${{ env.WORKING_DIRECTORY }}/ios
         run: RCT_NEW_ARCH_ENABLED=1 pod install
-      - name: Start simulator
-        id: start-simulator
-        uses: futureware-tech/simulator-action@v3
-        with:
-          os: tvOS
       - name: Build app
         uses: sersoft-gmbh/xcodebuild-action@v3
         with:

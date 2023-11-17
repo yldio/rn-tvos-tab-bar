@@ -32,16 +32,11 @@ jobs:
       - name: Install pods
         working-directory: ${{ env.WORKING_DIRECTORY }}/ios
         run: pod install
-      - name: Start simulator
-        id: start-simulator
-        uses: futureware-tech/simulator-action@v3
-        with:
-          os: tvOS
       - name: Build app
         uses: sersoft-gmbh/xcodebuild-action@v3
         with:
           workspace: ${{ env.WORKING_DIRECTORY }}/ios/TvOSExample.xcworkspace
           scheme: TvOSExample-tvOS
-          destination: platform=TvOS Simulator,id=${{ steps.start-simulator.outputs.udid }}
+          destination: platform=TvOS Simulator,name=Apple TV
           action: clean build
           build-settings: CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
