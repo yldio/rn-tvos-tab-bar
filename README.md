@@ -2,6 +2,10 @@
 
 A React Native library for implementing the iOS `UITabBar`, primarily designed for tvOS, but can be used on iOS devices as well.
 
+![Simulator Screen Recording - Apple TV 4K (3rd generation) (at 1080p)](https://github.com/yldio/rn-tvos-tab-bar/assets/58954208/8f23512b-3df4-4849-8b2d-d402b5c4004a)
+
+Note that this library does not come with any navigation logic so that you can integrate it with the navigation library you are using. For example, with [react-navigation](https://github.com/react-navigation), you can create a custom Navigator with [`useNavigationBuilder`](https://reactnavigation.org/docs/custom-navigators/#usenavigationbuilder).
+
 ## Installation
 
 ```bash
