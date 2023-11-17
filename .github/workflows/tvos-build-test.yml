@@ -33,5 +33,10 @@ jobs:
         working-directory: ${{ env.WORKING_DIRECTORY }}/ios
         run: pod install
       - name: Build app
-        working-directory: ${{ env.WORKING_DIRECTORY }}
-        run: yarn build:tvos
+        uses: sersoft-gmbh/xcodebuild-action@v3
+        with:
+          workspace: ${{ env.WORKING_DIRECTORY }}/ios/TvOSExample.xcworkspace
+          scheme: TvOSExample-tvOS
+          destination: tvOS Simulator
+          action: clean build
+          build-settings: CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
