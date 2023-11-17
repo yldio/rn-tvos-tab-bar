@@ -1,4 +1,4 @@
-name: Test TvOS build with legacy architecture
+name: Test TvOS build with new architecture (Fabric)
 on:
   pull_request:
     branches:
