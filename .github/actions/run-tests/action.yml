@@ -5,10 +5,10 @@ run:
     fail-fast: true
     matrix:
       include:
-        - name: Legacy architecture
+        - architecture: legacy
           working_directory: TvOSExample
           pod_install_command: pod install
-        - name: Fabric architecture
+        - architecture: fabric
           working_directory: FabricTvOSExample
           pod_install_command: RCT_NEW_ARCH_ENABLED=1 pod install
   steps:
