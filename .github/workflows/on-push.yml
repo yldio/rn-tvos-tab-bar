@@ -16,7 +16,7 @@ jobs:
           - name: Legacy architecture
             scheme: TvOSExample
             pod_install_command: pod install
-          - architecture: Fabric architecture
+          - name: Fabric architecture
             scheme: FabricTvOSExample
             pod_install_command: RCT_NEW_ARCH_ENABLED=1 pod install
     steps:
