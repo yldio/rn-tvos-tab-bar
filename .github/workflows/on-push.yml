@@ -8,4 +8,5 @@ jobs:
   run-tests:
     runs-on: macos-12
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/run-tests
