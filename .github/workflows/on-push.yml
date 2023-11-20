@@ -4,9 +4,50 @@ on:
   push:
     branches:
       - main
+    tags:
+      - "*"
 jobs:
   run-tests:
     runs-on: macos-12
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - name: Legacy architecture
+            working_directory: TvOSExample
+            pod_install_command: pod install
+          - architecture: Fabric architecture
+            working_directory: FabricTvOSExample
+            pod_install_command: RCT_NEW_ARCH_ENABLED=1 pod install
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "yarn"
+          cache-dependency-path: "${{ matrix.working_directory }}/yarn.lock"
+      - name: Install node dependencies
+        working-directory: ${{ matrix.working_directory }}
+        run: yarn
+      - name: Install pods
+        working-directory: ${{ matrix.working_directory }}/ios
+        run: ${{ matrix.pod_install_command }}
+      - name: Build app
+        uses: sersoft-gmbh/xcodebuild-action@v3
+        with:
+          workspace: ${{ matrix.working_directory }}/ios/${{ matrix.working_directory }}.xcworkspace
+          scheme: TvOSExample-tvOS
+          destination: platform=TvOS Simulator,name=Apple TV
+          action: clean build
+          build-settings: CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  release:
+    needs: run-tests
+    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/run-tests
+      - uses: ncipollo/release-action@v1
