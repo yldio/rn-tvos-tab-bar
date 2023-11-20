@@ -1,0 +1,11 @@
+name: Continuous Integration
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  run-tests:
+    runs-on: macos-12
+    steps:
+      - uses: ./.github/actions/run-tests
