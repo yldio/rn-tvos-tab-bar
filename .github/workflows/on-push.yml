@@ -14,10 +14,10 @@ jobs:
       matrix:
         include:
           - name: Legacy architecture
-            working_directory: TvOSExample
+            scheme: TvOSExample
             pod_install_command: pod install
           - architecture: Fabric architecture
-            working_directory: FabricTvOSExample
+            scheme: FabricTvOSExample
             pod_install_command: RCT_NEW_ARCH_ENABLED=1 pod install
     steps:
       - name: checkout
@@ -27,18 +27,18 @@ jobs:
         with:
           node-version: 18
           cache: "yarn"
-          cache-dependency-path: "${{ matrix.working_directory }}/yarn.lock"
+          cache-dependency-path: "${{ matrix.scheme }}/yarn.lock"
       - name: Install node dependencies
-        working-directory: ${{ matrix.working_directory }}
+        working-directory: ${{ matrix.scheme }}
         run: yarn
       - name: Install pods
-        working-directory: ${{ matrix.working_directory }}/ios
+        working-directory: ${{ matrix.scheme }}/ios
         run: ${{ matrix.pod_install_command }}
       - name: Build app
         uses: sersoft-gmbh/xcodebuild-action@v3
         with:
-          workspace: ${{ matrix.working_directory }}/ios/${{ matrix.working_directory }}.xcworkspace
-          scheme: TvOSExample-tvOS
+          workspace: ${{ matrix.scheme }}/ios/${{ matrix.scheme }}.xcworkspace
+          scheme: ${{ matrix.scheme }}-tvOS
           destination: platform=TvOS Simulator,name=Apple TV
           action: clean build
           build-settings: CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
