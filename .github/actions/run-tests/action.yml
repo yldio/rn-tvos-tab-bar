@@ -6,11 +6,11 @@ run:
     matrix:
       include:
         - name: Legacy architecture
-        working_directory: TvOSExample
-        pod_install_command: pod install
+          working_directory: TvOSExample
+          pod_install_command: pod install
         - name: Fabric architecture
-        working_directory: FabricTvOSExample
-        pod_install_command: RCT_NEW_ARCH_ENABLED=1 pod install
+          working_directory: FabricTvOSExample
+          pod_install_command: RCT_NEW_ARCH_ENABLED=1 pod install
   steps:
     - name: checkout
       uses: actions/checkout@v4
