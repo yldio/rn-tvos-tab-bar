@@ -28,7 +28,7 @@ jobs:
           cache-dependency-path: "${{ matrix.scheme }}/pnpm-lock.yaml"
       - name: Install node dependencies
         working-directory: ${{ matrix.scheme }}
-        run: yarn
+        run: pnpm install
       - name: Install pods
         working-directory: ${{ matrix.scheme }}/ios
         run: ${{ matrix.pod_install_command }}
