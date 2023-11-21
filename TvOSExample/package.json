@@ -12,7 +12,7 @@
     "expo": "^49.0.18",
     "react": "18.2.0",
     "react-native": "npm:react-native-tvos@^0.72.6-0",
-    "rn-tvos-tab-bar": "link:../"
+    "rn-tvos-tab-bar": "portal:../"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
