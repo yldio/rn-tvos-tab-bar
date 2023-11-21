@@ -13,10 +13,10 @@ jobs:
         include:
           - name: Legacy architecture
             scheme: TvOSExample
-            pod_install_command: pod install
+            pod_install_command: bundle exec pod install
           - name: Fabric architecture
             scheme: FabricTvOSExample
-            pod_install_command: RCT_NEW_ARCH_ENABLED=1 pod install
+            pod_install_command: RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -29,6 +29,11 @@ jobs:
           node-version: 18
           cache: "pnpm"
           cache-dependency-path: "${{ matrix.scheme }}/pnpm-lock.yaml"
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
       - name: Install node dependencies
         working-directory: ${{ matrix.scheme }}
         run: pnpm install
