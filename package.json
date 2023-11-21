@@ -28,7 +28,7 @@
   "homepage": "https://github.com/yldio/rn-tvos-tab-bar#readme",
   "devDependencies": {
     "react": "^18.2.0",
-    "react-native": "npm:react-native-tvos"
+    "react-native": "npm:react-native-tvos@0.72.6-1"
   },
   "peerDependencies": {
     "react": "*",
