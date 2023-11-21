@@ -3353,7 +3353,7 @@ __metadata:
     react: "npm:18.2.0"
     react-native: "npm:react-native-tvos@^0.72.6-0"
     react-test-renderer: "npm:18.2.0"
-    rn-tvos-tab-bar: ./..
+    rn-tvos-tab-bar: "link:../"
     typescript: "npm:4.8.4"
   languageName: unknown
   linkType: soft
@@ -10234,15 +10234,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rn-tvos-tab-bar@file:./..::locator=FabricTvOSExample%40workspace%3A.":
-  version: 0.1.0
-  resolution: "rn-tvos-tab-bar@file:./..#./..::hash=60c5fb&locator=FabricTvOSExample%40workspace%3A."
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-  checksum: e278956f127d3d44a7f616c9c9627d252c7f97811a8ca87072bc11c572421f9466e312bf5748a33bb9b6f47edc372ee5a186923db726b3cf98aad0d265d05f44
+"rn-tvos-tab-bar@link:../::locator=FabricTvOSExample%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "rn-tvos-tab-bar@link:../::locator=FabricTvOSExample%40workspace%3A."
   languageName: node
-  linkType: hard
+  linkType: soft
 
 "run-parallel@npm:^1.1.9":
   version: 1.2.0
