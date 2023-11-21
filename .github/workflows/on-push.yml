@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    tags:
-      - "*"
 jobs:
   run-tests:
     runs-on: macos-12
@@ -42,12 +40,3 @@ jobs:
           destination: platform=TvOS Simulator,name=Apple TV
           action: clean build
           build-settings: CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-  release:
-    needs: run-tests
-    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ncipollo/release-action@v1
