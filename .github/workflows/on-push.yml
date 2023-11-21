@@ -23,10 +23,10 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: latest
-      - name: Use Node.js 18
+      - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: latest
           cache: "pnpm"
           cache-dependency-path: "${{ matrix.scheme }}/pnpm-lock.yaml"
       - name: Install Ruby
