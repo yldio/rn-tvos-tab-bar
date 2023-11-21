@@ -3330,9 +3330,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"FabricTvOSExample@workspace:.":
+"TvOSExample@workspace:.":
   version: 0.0.0-use.local
-  resolution: "FabricTvOSExample@workspace:."
+  resolution: "TvOSExample@workspace:."
   dependencies:
     "@babel/core": "npm:^7.20.0"
     "@babel/preset-env": "npm:^7.20.0"
@@ -10234,13 +10234,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rn-tvos-tab-bar@file:./..::locator=FabricTvOSExample%40workspace%3A.":
+"rn-tvos-tab-bar@file:./..::locator=TvOSExample%40workspace%3A.":
   version: 0.1.0
-  resolution: "rn-tvos-tab-bar@file:./..#./..::hash=e60beb&locator=FabricTvOSExample%40workspace%3A."
+  resolution: "rn-tvos-tab-bar@file:./..#./..::hash=03a211&locator=TvOSExample%40workspace%3A."
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 3c154e4810090d29bf5a9bb26332dc40fdf73ed5961613a7487b962ad3ad20a5831900400bc2487b254a214713ddea88f63137aa56023e2476c6cc60b12a2988
+  checksum: 00b95a4b65493b2b63424a5fbe77cd8f2c286fa823e488562435fba5f14e15cea200e0adadeb11f0997dfd3701cd6b7ef85d79b3caddf421d8765546838dcd1b
   languageName: node
   linkType: hard
 

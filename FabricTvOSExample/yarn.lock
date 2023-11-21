@@ -10236,11 +10236,11 @@ __metadata:
 
 "rn-tvos-tab-bar@file:./..::locator=FabricTvOSExample%40workspace%3A.":
   version: 0.1.0
-  resolution: "rn-tvos-tab-bar@file:./..#./..::hash=e60beb&locator=FabricTvOSExample%40workspace%3A."
+  resolution: "rn-tvos-tab-bar@file:./..#./..::hash=60c5fb&locator=FabricTvOSExample%40workspace%3A."
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 3c154e4810090d29bf5a9bb26332dc40fdf73ed5961613a7487b962ad3ad20a5831900400bc2487b254a214713ddea88f63137aa56023e2476c6cc60b12a2988
+  checksum: e278956f127d3d44a7f616c9c9627d252c7f97811a8ca87072bc11c572421f9466e312bf5748a33bb9b6f47edc372ee5a186923db726b3cf98aad0d265d05f44
   languageName: node
   linkType: hard
 

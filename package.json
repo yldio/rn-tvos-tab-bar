@@ -6,10 +6,8 @@
   "source": "js/index",
   "files": [
     "js",
-    "android",
     "ios",
     "rn-tvos-tab-bar.podspec",
-    "!android/build",
     "!ios/build",
     "!**/__tests__",
     "!**/__fixtures__",
