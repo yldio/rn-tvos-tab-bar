@@ -24,8 +24,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: "yarn"
-          cache-dependency-path: "${{ matrix.scheme }}/yarn.lock"
+          cache: "pnpm"
+          cache-dependency-path: "${{ matrix.scheme }}/pnpm-lock.yaml"
       - name: Install node dependencies
         working-directory: ${{ matrix.scheme }}
         run: yarn
