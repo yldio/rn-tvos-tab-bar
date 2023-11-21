@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@react-native-community/cli-platform-ios':
+    specifier: ^12.1.1
+    version: 12.1.1
   expo:
     specifier: ^49.0.18
     version: 49.0.20(@babel/core@7.23.3)
@@ -2289,6 +2292,19 @@ packages:
       - encoding
     dev: false
 
+  /@react-native-community/cli-platform-ios@12.1.1:
+    resolution: {integrity: sha512-RA2lvFrswwQRIhCV3hoIYZmLe9TkRegpAWimdubtMxRHiv7Eh2dC0VWWR5VdWy3ltbJzeiEpxCoH/EcrMfp9tg==}
+    dependencies:
+      '@react-native-community/cli-tools': 12.1.1
+      chalk: 4.1.2
+      execa: 5.1.1
+      fast-xml-parser: 4.3.2
+      glob: 7.2.3
+      ora: 5.4.1
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
   /@react-native-community/cli-plugin-metro@11.3.10(@babel/core@7.23.3):
     resolution: {integrity: sha512-ZYAc5Hc+QVqJgj1XFbpKnIPbSJ9xKcBnfQrRhR+jFyt2DWx85u4bbzY1GSVc/USs0UbSUXv4dqPbnmOJz52EYQ==}
     dependencies:
@@ -2342,6 +2358,23 @@ packages:
       ora: 5.4.1
       semver: 7.5.4
       shell-quote: 1.8.1
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
+  /@react-native-community/cli-tools@12.1.1:
+    resolution: {integrity: sha512-c9vjDVojZnivGsLoVoTZsJjHnwBEI785yV8mgyKTVFx1sciK8lCsIj1Lke7jNpz7UAE1jW94nI7de2B1aQ9rbA==}
+    dependencies:
+      appdirsjs: 1.2.7
+      chalk: 4.1.2
+      find-up: 5.0.0
+      mime: 2.6.0
+      node-fetch: 2.7.0
+      open: 6.4.0
+      ora: 5.4.1
+      semver: 7.5.4
+      shell-quote: 1.8.1
+      sudo-prompt: 9.2.1
     transitivePeerDependencies:
       - encoding
     dev: false
