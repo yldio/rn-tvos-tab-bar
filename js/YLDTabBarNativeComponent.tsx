@@ -6,7 +6,7 @@ import type {
 import codegenNativeComponent from "react-native/Libraries/Utilities/codegenNativeComponent";
 
 export interface TabBarProps extends ViewProps {
-  items: ReadonlyArray<string>;
+  items: readonly string[];
   selectedItem: Int32;
   onSelectItem: BubblingEventHandler<Readonly<{ index: Int32 }>>;
 }
