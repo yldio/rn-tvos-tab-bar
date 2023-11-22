@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
+    "paths": {
+      "rn-tvos-tab-bar": ["./src"],
+    },
     "jsx": "react",
     "lib": ["esnext"],
     "module": "esnext",
     "moduleResolution": "node",
+    "skipLibCheck": true,
     "target": "esnext"
   },
-  "include": ["components/**/*.ts", "components/**/*.tsx", "js/**/*.ts", "js/**/*.tsx"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "js/**/*.ts", "js/**/*.tsx"]
 }
