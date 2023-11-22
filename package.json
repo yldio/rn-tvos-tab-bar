@@ -25,8 +25,22 @@
   },
   "homepage": "https://github.com/yldio/rn-tvos-tab-bar#readme",
   "devDependencies": {
+    "@types/react": "^18.2.38",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-native": "^4.1.0",
+    "prettier": "^3.1.0",
     "react": "^18.2.0",
-    "react-native": "npm:react-native-tvos@0.72.6-1"
+    "react-native": "npm:react-native-tvos@0.72.6-1",
+    "typescript": "^5.3.2"
   },
   "peerDependencies": {
     "react": "*",
@@ -36,5 +50,11 @@
     "name": "YLDTabBarSpecs",
     "type": "components",
     "jsSrcsDir": "js"
+  },
+  "scripts": {
+    "format:js": "prettier --write --list-different './{js,components}/**/*.{js,ts,tsx}'",
+    "format:ios": "find ios/ -iname '*.h' -o -iname '*.m' -o -iname '*.cpp' -o -iname '*.mm' | xargs clang-format -i",
+    "format": "yarn format:js && yarn format:ios",
+    "lint": "eslint --ext '.js,.ts,.tsx' --fix js components"
   }
 }
