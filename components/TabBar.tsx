@@ -10,7 +10,7 @@ export interface TabBarProps extends ViewProps {
   onSelectItem: (_: { index: number }) => void;
 }
 export function TabBar({ onSelectItem, ...props }: TabBarProps) {
-  const handleSelectItem = React.useCallback<
+  const handleSelectItem = React.useCallback< 
     BubblingEventHandler<{ index: number }>
   >(
     (event) => {
