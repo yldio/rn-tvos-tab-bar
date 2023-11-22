@@ -1,7 +1,8 @@
 import * as React from "react";
-import type { BubblingEventHandler, ViewProps } from "react-native";
+import type { ViewProps } from "react-native";
+import type { BubblingEventHandler } from "react-native/Libraries/Types/CodegenTypes";
 
-const YLDTabBar = require("../js/YLDTabBarNativeComponent").default;
+const YLDTabBar = (await import("../js/YLDTabBarNativeComponent")).default;
 
 export interface TabBarProps extends ViewProps {
   items: string[];
@@ -9,11 +10,13 @@ export interface TabBarProps extends ViewProps {
   onSelectItem: (_: { index: number }) => void;
 }
 export function TabBar({ onSelectItem, ...props }: TabBarProps) {
-  const handleSelectItem = React.useCallback(
-    (event: BubblingEventHandler<{ index: number }>) => {
+  const handleSelectItem = React.useCallback<
+    BubblingEventHandler<{ index: number }>
+  >(
+    (event) => {
       onSelectItem(event.nativeEvent);
     },
-    [onSelectItem]
+    [onSelectItem],
   );
   return <YLDTabBar {...props} onSelectItem={handleSelectItem} />;
 }

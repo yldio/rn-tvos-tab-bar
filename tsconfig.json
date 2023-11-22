@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "lib": ["esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "esnext"
+  },
+  "include": ["components/**/*.ts", "components/**/*.tsx", "js/**/*.ts", "js/**/*.tsx"]
+}

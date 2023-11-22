@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import { TabBar } from 'rn-tvos-tab-bar/components/TabBar';
+import {Button, StyleSheet, Text, View} from 'react-native';
+import {TabBar} from 'rn-tvos-tab-bar/components/TabBar';
 
 function App(): JSX.Element {
   const currentIndex = React.useRef(1);

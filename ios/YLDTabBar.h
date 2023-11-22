@@ -8,7 +8,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLDTabBar : 
+@interface YLDTabBar :
 #ifdef RCT_NEW_ARCH_ENABLED
     RCTViewComponentView <UITabBarDelegate>
 #else
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 #endif
 
 #ifndef RCT_NEW_ARCH_ENABLED
-@property (nonatomic, copy) RCTBubblingEventBlock onSelectItem;
+@property(nonatomic, copy) RCTBubblingEventBlock onSelectItem;
 #endif
 
 @end
