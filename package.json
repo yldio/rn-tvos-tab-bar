@@ -55,6 +55,6 @@
     "format:js": "prettier --write --list-different './{js,components}/**/*.{js,ts,tsx}'",
     "format:ios": "find ios/ -iname '*.h' -o -iname '*.m' -o -iname '*.cpp' -o -iname '*.mm' | xargs clang-format -i",
     "format": "yarn format:js && yarn format:ios",
-    "lint": "eslint --ext '.js,.ts,.tsx' --fix js components"
+    "lint": "eslint --ext '.js,.ts,.tsx' --fix js components && prettier --check './{js,components}/**/*.{js,ts,tsx}'"
   }
 }
