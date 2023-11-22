@@ -2,16 +2,18 @@
   "name": "rn-tvos-tab-bar",
   "version": "0.1.0",
   "description": "Native Component for UITabBar on tvOS",
-  "react-native": "js/index",
-  "source": "js/index",
+  "react-native": "src/index.tsx",
+  "source": "src/index.tsx",
   "files": [
+    "src",
+    "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
     "js",
     "ios",
     "rn-tvos-tab-bar.podspec",
-    "!ios/build",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__"
+    "!ios/build"
   ],
   "keywords": [
     "react-native",
@@ -40,6 +42,7 @@
     "prettier": "^3.1.0",
     "react": "^18.2.0",
     "react-native": "npm:react-native-tvos@0.72.6-1",
+    "react-native-builder-bob": "^0.23.1",
     "typescript": "^5.3.2"
   },
   "peerDependencies": {
@@ -55,6 +58,23 @@
     "format:js": "prettier --write --list-different './{js,components}/**/*.{js,ts,tsx}'",
     "format:ios": "find ios/ -iname '*.h' -o -iname '*.m' -o -iname '*.cpp' -o -iname '*.mm' | xargs clang-format -i",
     "format": "yarn format:js && yarn format:ios",
-    "lint": "eslint --max-warnings=0 --ext '.js,.ts,.tsx' --fix js components && prettier --max-warnings=0 --check './{js,components}/**/*.{js,ts,tsx}'"
-  }
+    "lint": "eslint --max-warnings=0 --ext '.js,.ts,.tsx' --fix js components && prettier --max-warnings=0 --check './{js,components}/**/*.{js,ts,tsx}'",
+    "prepare": "bob build"
+  },
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/src/index.d.ts",
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ]
 }
