@@ -55,10 +55,10 @@
     "jsSrcsDir": "js"
   },
   "scripts": {
-    "format:js": "prettier --write --list-different './{js,components}/**/*.{js,ts,tsx}'",
+    "format:js": "prettier --write --list-different './{js,src}/**/*.{js,ts,tsx}'",
     "format:ios": "find ios/ -iname '*.h' -o -iname '*.m' -o -iname '*.cpp' -o -iname '*.mm' | xargs clang-format -i",
     "format": "yarn format:js && yarn format:ios",
-    "lint": "eslint --max-warnings=0 --ext '.js,.ts,.tsx' --fix js components && prettier --max-warnings=0 --check './{js,components}/**/*.{js,ts,tsx}'",
+    "lint": "eslint --max-warnings=0 --ext '.js,.ts,.tsx' --fix js src && prettier --check './{js,src}/**/*.{js,ts,tsx}'",
     "prepare": "bob build"
   },
   "main": "lib/commonjs/index.js",
