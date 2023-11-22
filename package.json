@@ -49,6 +49,10 @@
     "react": "*",
     "react-native": "*"
   },
+  "workspaces": [
+    "TvOSExample",
+    "FabricTvOSExample"
+  ],
   "codegenConfig": {
     "name": "YLDTabBarSpecs",
     "type": "components",
