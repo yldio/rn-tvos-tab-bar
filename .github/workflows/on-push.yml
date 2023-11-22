@@ -44,6 +44,7 @@ jobs:
           cache: "yarn"
           cache-dependency-path: |
             yarn.lock
+            ${{ matrix.scheme }}/yarn.lock
       - name: Install package node dependencies
         run: yarn install --frozen-lockfile
       - name: Publish package locally
@@ -53,7 +54,7 @@ jobs:
         run: yarn dlx yalc add rn-tvos-tab-bar
       - name: Install example project node dependencies
         working-directory: ${{ matrix.scheme }}
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: Install pods
         working-directory: ${{ matrix.scheme }}/ios
         run: ${{ matrix.pod_install_command }}

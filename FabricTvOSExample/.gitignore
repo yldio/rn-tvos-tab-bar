@@ -68,7 +68,6 @@ buck-out/
 .yarn/install-state.gz
 .yarn/build-state.yml
 .yarn/unplugged
-yarn.lock
 
 #yalc
 .yalc
