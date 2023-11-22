@@ -5,6 +5,22 @@ on:
     branches:
       - main
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "yarn"
+          cache-dependency-path: "yarn.lock"
+      - name: Install node dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run linter
+        run: yarn lint
+
   run-tests:
     runs-on: macos-12
     strategy:
