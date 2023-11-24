@@ -1,8 +1,7 @@
 import * as React from "react";
 import type { ViewProps } from "react-native";
 import type { BubblingEventHandler } from "react-native/Libraries/Types/CodegenTypes";
-
-const YLDTabBar = (await import("../js/YLDTabBarNativeComponent")).default;
+import YLDTabBar from "../js/YLDTabBarNativeComponent";
 
 export interface TabBarProps extends ViewProps {
   items: string[];
