@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build:tvos": "xcodebuild clean build -workspace ios/TvOSExample.xcworkspace -scheme TvOSExample-tvOS -destination 'platform=tvOS Simulator' CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO",
+    "build:tvos": "xcodebuild -workspace ios/TvOSExample.xcworkspace -scheme TvOSExample-tvOS -destination \"platform=TvOS Simulator,name=Apple TV\" CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO clean build",
     "start": "react-native-tvos start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
