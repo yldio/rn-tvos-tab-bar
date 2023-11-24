@@ -59,6 +59,7 @@ jobs:
         working-directory: ${{ matrix.scheme }}/ios
         run: ${{ matrix.pod_install_command }}
       - name: Build app
+        working-directory: ${{ matrix.scheme }}
         run: yarn build:tvos
         # uses: sersoft-gmbh/xcodebuild-action@v3
         # with:
