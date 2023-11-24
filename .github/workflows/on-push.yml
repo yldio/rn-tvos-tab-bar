@@ -61,6 +61,12 @@ jobs:
       - name: Build app
         working-directory: ${{ matrix.scheme }}
         run: yarn build:tvos
+      - name: Extract outputh path
+        run: |
+          path=$(grep -oP 'Touch \K.*(?= \(in target)' build.log | sed 's#(in target.*$##')
+          echo "APP_PATH=$path" >> $GITHUB_ENV
+      - name: Display path
+        run: 'echo "Extracted Path from Environment Variable: $APP_PATH"'
         # uses: sersoft-gmbh/xcodebuild-action@v3
         # with:
         #   workspace: ${{ matrix.scheme }}/ios/${{ matrix.scheme }}.xcworkspace
