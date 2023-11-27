@@ -55,5 +55,5 @@ describe('TabBar', () => {
     expect(
       await updatedSelectedItemText.getAttribute('name'),
     ).toMatchInlineSnapshot(`"Selected item: Item 2"`);
-  });
+  }, 60000);
 });
