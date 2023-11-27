@@ -8,7 +8,7 @@ describe('TabBar', () => {
 
   beforeAll(async () => {
     driver = await remote(wdOpts);
-  });
+  }, 60000);
 
   afterAll(async () => {
     await driver.deleteSession();
