@@ -67,7 +67,7 @@ jobs:
       - name: Install Appium driver
         run: yarn dlx appium driver install xcuitest
       - name: Start Appium server
-        run: nohup yarn dlx appium server 2>&1
+        run: nohup yarn dlx appium server 2>&1 &
       - name: Run End-to-End tests
         working-directory: ${{ matrix.scheme }}
         run: APP_PATH=$path yarn test
