@@ -65,7 +65,7 @@ jobs:
         working-directory: ${{ matrix.scheme }}
         run: path=$(grep -o '^Touch .*\.app' build.log | sed 's/Touch //')
       - name: Start Appium server
-        run: nohup appium server
+        run: nohup yarn dlx appium server
       - name: Run End-to-End tests
         working-directory: ${{ matrix.scheme }}
         run: APP_PATH=$path yarn test
