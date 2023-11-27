@@ -5,7 +5,7 @@ const capabilities = {
   'appium:automationName': 'XCUITest',
   'appium:platformVersion': '17.0',
   'appium:deviceName': 'Apple TV',
-  'appium:app': '/tmp/TvOSExample',
+  'appium:app': process.env.APP_PATH,
 };
 
 export const wdOpts: RemoteOptions = {
