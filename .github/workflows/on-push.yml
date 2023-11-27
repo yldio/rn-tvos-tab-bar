@@ -64,8 +64,10 @@ jobs:
       - name: Extract outputh path
         working-directory: ${{ matrix.scheme }}
         run: path=$(grep -o '^Touch .*\.app' build.log | sed 's/Touch //')
+      - name: Install Appium driver
+        run: yarn dlx appium driver install xcuitest
       - name: Start Appium server
-        run: nohup yarn dlx appium server
+        run: nohup yarn dlx appium server 2>&1
       - name: Run End-to-End tests
         working-directory: ${{ matrix.scheme }}
         run: APP_PATH=$path yarn test
