@@ -62,6 +62,7 @@ jobs:
         working-directory: ${{ matrix.scheme }}
         run: yarn build:tvos > build.log
       - name: Extract outputh path
+        working-directory: ${{ matrix.scheme }}
         run: |
           path=$(grep -o '^Touch .*\.app' build.log | sed 's/Touch //')
           echo "APP_PATH=$path" >> $GITHUB_ENV
