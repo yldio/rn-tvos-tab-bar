@@ -60,10 +60,10 @@ jobs:
         run: ${{ matrix.pod_install_command }}
       - name: Build app
         working-directory: ${{ matrix.scheme }}
-        run: yarn build:tvos
+        run: yarn build:tvos > build.log
       - name: Extract outputh path
         run: |
-          path=$(grep -oP 'Touch \K.*(?= \(in target)' build.log | sed 's#(in target.*$##')
+          path=$(grep -o '^Touch .*\.app' build.log | sed 's/Touch //')
           echo "APP_PATH=$path" >> $GITHUB_ENV
       - name: Display path
         run: 'echo "Extracted Path from Environment Variable: $APP_PATH"'
