@@ -23,7 +23,7 @@ jobs:
 
   run-tests:
     needs: lint
-    runs-on: macos-12
+    runs-on: macos-13
     strategy:
       fail-fast: true
       matrix:
@@ -45,6 +45,10 @@ jobs:
           cache-dependency-path: |
             yarn.lock
             ${{ matrix.scheme }}/yarn.lock
+      - name: Setup xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "15.0.1"
       - name: Install package node dependencies
         run: yarn install --immutable
       - name: Publish package locally
@@ -59,10 +63,33 @@ jobs:
         working-directory: ${{ matrix.scheme }}/ios
         run: ${{ matrix.pod_install_command }}
       - name: Build app
-        uses: sersoft-gmbh/xcodebuild-action@v3
+        working-directory: ${{ matrix.scheme }}
+        run: yarn build:tvos > build.log
+      - name: Extract outputh path
+        working-directory: ${{ matrix.scheme }}
+        run: |
+          path=$(grep -o '^Touch .*\.app' build.log | sed 's/Touch //')
+          echo "Extracted Path: $path"
+          echo "APP_PATH=$path" >> $GITHUB_ENV
+      - name: Install Appium
+        run: npm install -g appium
+      - name: Install Appium driver
+        run: appium driver install xcuitest
+      - name: Start Appium server
+        run: nohup appium server 2>&1 > "${{ matrix.scheme }}/appium.log" &
+      - name: Display appium logs
+        uses: webiny/action-post-run@3.0.0
         with:
-          workspace: ${{ matrix.scheme }}/ios/${{ matrix.scheme }}.xcworkspace
-          scheme: ${{ matrix.scheme }}-tvOS
-          destination: platform=TvOS Simulator,name=Apple TV
-          action: clean build
-          build-settings: CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+          run: cat "${{ matrix.scheme }}/appium.log"
+      - name: Run End-to-End tests
+        working-directory: ${{ matrix.scheme }}
+        run: yarn test
+      # - name: Display path
+      #   run: 'echo "Extracted Path from Environment Variable: $APP_PATH"'
+      # uses: sersoft-gmbh/xcodebuild-action@v3
+      # with:
+      #   workspace: ${{ matrix.scheme }}/ios/${{ matrix.scheme }}.xcworkspace
+      #   scheme: ${{ matrix.scheme }}-tvOS
+      #   destination: platform=TvOS Simulator,name=Apple TV
+      #   action: clean build
+      #   build-settings: CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
