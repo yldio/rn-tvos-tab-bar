@@ -3,7 +3,7 @@ import {RemoteOptions} from 'webdriverio';
 const capabilities = {
   platformName: 'tvOS',
   'appium:automationName': 'XCUITest',
-  'appium:platformVersion': '16.0',
+  'appium:platformVersion': '17.0',
   'appium:deviceName': 'Apple TV',
   'appium:app': process.env.APP_PATH,
 };
