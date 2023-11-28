@@ -23,7 +23,7 @@ jobs:
 
   run-tests:
     needs: lint
-    runs-on: macos-12
+    runs-on: macos-13
     strategy:
       fail-fast: true
       matrix:
