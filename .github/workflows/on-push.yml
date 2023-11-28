@@ -45,6 +45,10 @@ jobs:
           cache-dependency-path: |
             yarn.lock
             ${{ matrix.scheme }}/yarn.lock
+      - name: Setup xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "15.0.1"
       - name: Install package node dependencies
         run: yarn install --immutable
       - name: Publish package locally
