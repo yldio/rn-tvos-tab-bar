@@ -31,7 +31,9 @@ describe('TabBar', () => {
     expect(await tabBarItems[0].getAttribute('name')).toBe('Item 1');
 
     // Select and press Add button
-    const button = await driver.$('~Add an item');
+    const button = await driver.$(
+      '//XCUIElementTypeButton[@name="Add an item"]',
+    );
     expect(selectedItemText.error).toBeUndefined();
     await moveTo(button.elementId, 'Down', driver);
     await button.click();
