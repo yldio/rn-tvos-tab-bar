@@ -6620,9 +6620,9 @@ __metadata:
   linkType: hard
 
 "ip@npm:^1.1.5":
-  version: 1.1.8
-  resolution: "ip@npm:1.1.8"
-  checksum: ab32a5ecfa678d4c158c1381c4c6744fce89a1d793e1b6635ba79d0753c069030b672d765887b6fff55670c711dfa47475895e5d6013efbbcf04687c51cb8db9
+  version: 1.1.9
+  resolution: "ip@npm:1.1.9"
+  checksum: 5af58bfe2110c9978acfd77a2ffcdf9d33a6ce1c72f49edbaf16958f7a8eb979b5163e43bb18938caf3aaa55cdacde4e470874c58ca3b4b112ea7a30461a0c27
   languageName: node
   linkType: hard
 
@@ -10236,11 +10236,8 @@ __metadata:
 
 "rn-tvos-tab-bar@file:.yalc/rn-tvos-tab-bar::locator=TvOSExample%40workspace%3A.":
   version: 0.1.0
-  resolution: "rn-tvos-tab-bar@file:.yalc/rn-tvos-tab-bar#.yalc/rn-tvos-tab-bar::hash=d1cc42&locator=TvOSExample%40workspace%3A."
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-  checksum: d5c871cb78d1978a03c11e3ff97d21a9773530e3939600955d9b2d4cab186499521aca5c89ae3f747db52553e002df67014e0a9cf42b58dad72de38648be8b21
+  resolution: "rn-tvos-tab-bar@file:.yalc/rn-tvos-tab-bar#.yalc/rn-tvos-tab-bar::hash=04142b&locator=TvOSExample%40workspace%3A."
+  checksum: 997d464810469c1da327a1ca92be911dc21c1c8bbb2f1cbac447ccedecb6f8bc30a8f17b8e3f6dde01ea8d513d5701acec4523b4e0797efd41c2ea999c577658
   languageName: node
   linkType: hard
 
